@@ -1,0 +1,9 @@
+.Header {
+    height:100px;
+    width:100%;
+}
+
+.HeaderText{
+    font-size: 35px;
+    color: #aaafb7;
+}
