@@ -1,0 +1,14 @@
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\bin\Debug\netcoreapp2.1\OtimizacaoFoodTruck.deps.json
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\bin\Debug\netcoreapp2.1\OtimizacaoFoodTruck.runtimeconfig.json
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\bin\Debug\netcoreapp2.1\OtimizacaoFoodTruck.runtimeconfig.dev.json
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\bin\Debug\netcoreapp2.1\OtimizacaoFoodTruck.dll
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\obj\Debug\netcoreapp2.1\OtimizacaoFoodTruck.csprojAssemblyReference.cache
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\obj\Debug\netcoreapp2.1\OtimizacaoFoodTruck.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\obj\Debug\netcoreapp2.1\OtimizacaoFoodTruck.RazorAssemblyInfo.cache
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\obj\Debug\netcoreapp2.1\OtimizacaoFoodTruck.RazorAssemblyInfo.cs
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\obj\Debug\netcoreapp2.1\OtimizacaoFoodTruck.AssemblyInfoInputs.cache
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\obj\Debug\netcoreapp2.1\OtimizacaoFoodTruck.AssemblyInfo.cs
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\obj\Debug\netcoreapp2.1\OtimizacaoFoodTruck.RazorTargetAssemblyInfo.cache
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\bin\Debug\netcoreapp2.1\OtimizacaoFoodTruck.pdb
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\obj\Debug\netcoreapp2.1\OtimizacaoFoodTruck.dll
+C:\Users\Dell\Desktop\OtimizacaoFoodTruck\OtimizacaoFoodTruckC#\OtimzacaoFoodTruck\OtimzacaoFoodTruck\obj\Debug\netcoreapp2.1\OtimizacaoFoodTruck.pdb
