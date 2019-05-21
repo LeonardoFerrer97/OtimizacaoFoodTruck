@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using OtimizacaoFoodTruck.Business;
 using OtimizacaoFoodTruck.Entitys;
-
 namespace OtimzacaoFoodTruck.Controllers
 {
     [Route("api/")]
@@ -14,9 +9,10 @@ namespace OtimzacaoFoodTruck.Controllers
     {
         private readonly GlpkBusiness glpk = new GlpkBusiness();
         [HttpPost("glpk")]
-        public bool Glpk([FromBody]Ingredientes Ingredientes)
+        public string Glpk([FromBody]Ingredientes Ingredientes)
         {
-            return glpk.Otimizacao(Ingredientes);
+            var res = glpk.Otimizacao(Ingredientes);
+            return res;
         }
     }
 }

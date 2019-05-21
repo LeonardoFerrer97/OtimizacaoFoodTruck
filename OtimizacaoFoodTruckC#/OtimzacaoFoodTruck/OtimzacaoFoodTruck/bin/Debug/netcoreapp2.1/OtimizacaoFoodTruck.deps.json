@@ -28,7 +28,8 @@
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
           "Optimization.Solver.GLPK": "0.3.0",
-          "System.Configuration.ConfigurationManager": "4.5.0"
+          "System.Configuration.ConfigurationManager": "4.5.0",
+          "libglpk-cli": "1.10.0.0"
         },
         "runtime": {
           "OtimizacaoFoodTruck.dll": {}
@@ -309,6 +310,17 @@
           "lib/20/Microsoft.Practices.Unity.Interception.Configuration.dll": {},
           "lib/20/Microsoft.Practices.Unity.Interception.dll": {},
           "lib/20/Microsoft.Practices.Unity.dll": {}
+        }
+      },
+      "libglpk-cli/1.10.0.0": {
+        "runtime": {
+          "libglpk-cli.dll": {
+            "assemblyVersion": "1.10.0.0",
+            "fileVersion": "1.10.0.0"
+          }
+        },
+        "compile": {
+          "libglpk-cli.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3356,6 +3368,11 @@
       "sha512": "sha512-3rEFaERmnUt+JOTiqF4AJIVU8vvy7NZGW9a5kTwps5vg/eQ5UzLL5lx5dsixMT/P+vvS1PfKYZOUkrx6PgpFuQ==",
       "path": "unity/2.0.0",
       "hashPath": "unity.2.0.0.nupkg.sha512"
+    },
+    "libglpk-cli/1.10.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",

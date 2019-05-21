@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 
-export function submeter(ingredientes) {
-    const URL = `http://localhost:8080/otimizar`;
-    axios.post(URL,ingredientes)
+export function submeter(Ingredientes) {
+    const URL = `https://localhost:44357/api/glpk`;
+    axios.post(URL,Ingredientes, { headers: { 'Content-Type': 'application/*+json' } })
         .then(response => {
-            console.log(response.data)
+            console.log(response)
         })
         .catch(error => {
             console.log(error)

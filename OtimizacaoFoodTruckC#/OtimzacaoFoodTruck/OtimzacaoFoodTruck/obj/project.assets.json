@@ -11712,11 +11712,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dell\\Desktop\\OtimizacaoFoodTruck\\OtimizacaoFoodTruckC#\\OtimzacaoFoodTruck\\OtimzacaoFoodTruck\\OtimizacaoFoodTruck.csproj",
+      "projectUniqueName": "C:\\OS\\otimizacaoFoodTruck\\OtimizacaoFoodTruckC#\\OtimzacaoFoodTruck\\OtimzacaoFoodTruck\\OtimizacaoFoodTruck.csproj",
       "projectName": "OtimizacaoFoodTruck",
-      "projectPath": "C:\\Users\\Dell\\Desktop\\OtimizacaoFoodTruck\\OtimizacaoFoodTruckC#\\OtimzacaoFoodTruck\\OtimzacaoFoodTruck\\OtimizacaoFoodTruck.csproj",
+      "projectPath": "C:\\OS\\otimizacaoFoodTruck\\OtimizacaoFoodTruckC#\\OtimzacaoFoodTruck\\OtimzacaoFoodTruck\\OtimizacaoFoodTruck.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dell\\Desktop\\OtimizacaoFoodTruck\\OtimizacaoFoodTruckC#\\OtimzacaoFoodTruck\\OtimzacaoFoodTruck\\obj\\",
+      "outputPath": "C:\\OS\\otimizacaoFoodTruck\\OtimizacaoFoodTruckC#\\OtimzacaoFoodTruck\\OtimzacaoFoodTruck\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

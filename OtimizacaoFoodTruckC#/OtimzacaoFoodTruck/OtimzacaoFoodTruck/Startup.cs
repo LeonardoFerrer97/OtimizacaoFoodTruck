@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -26,8 +28,9 @@ namespace OtimzacaoFoodTruck
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddCors();
 
+
+            services.AddCors();
 
         }
 
@@ -47,11 +50,12 @@ namespace OtimzacaoFoodTruck
             app.UseMvc();
 
             app.UseCors(builder => builder
-    .AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    .AllowCredentials()
-    );
+          .AllowAnyOrigin()
+          .AllowAnyMethod()
+          .AllowAnyHeader()
+          .AllowCredentials()
+    
+          );
         }
     }
 }

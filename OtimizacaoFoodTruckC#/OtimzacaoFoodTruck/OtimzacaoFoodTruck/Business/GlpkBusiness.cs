@@ -2,26 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Optimization;
-using Optimization.Interfaces;
-using Optimization.Solver.GLPK;
 using OtimizacaoFoodTruck.Entitys;
+
+using org.gnu.glpk;
+
 
 namespace OtimizacaoFoodTruck.Business
 {
     public class GlpkBusiness
     {
-        private readonly GLPKSolver GLPK = new GLPKSolver();
-        public bool Otimizacao(Ingredientes ingredientes)
+        private GLPK glpk;
+        public string Otimizacao(Ingredientes ingredientes)
         {
-            Model model = new Model();
-            List<Variable> list = AdicionarVariaveis(ingredientes);
-            model.AddVariables(list);
-            model.AddConstraint(Constraint.GreaterThanOrEqual(MontarExpressaoCustoXQuantidade(ingredientes),ingredientes.CapitalDeGiro ));
-            model = AdicionarObjetivo(list, model);
-            return GLPK.Solve(model) == null;
+            glp_prob prob = new glp_prob();
+            return GLPK.glp_version();
         }
-        private Expression MontarExpressaoCustoXQuantidade(Ingredientes ingredientes)
+       /* private Expression MontarExpressaoCustoXQuantidade(Ingredientes ingredientes)
         {
             Variable variable = new Variable
             {
@@ -91,6 +87,6 @@ namespace OtimizacaoFoodTruck.Business
                 QuantidadeBacon
             };
             return lista;
-        }
+        }*/
     }
 }
