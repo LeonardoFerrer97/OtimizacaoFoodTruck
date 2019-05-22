@@ -1,92 +1,100 @@
-﻿using System;
+﻿using OPTANO.Modeling.Common;
+using OPTANO.Modeling.Optimization;
+using OPTANO.Modeling.Optimization.Configuration;
+using OPTANO.Modeling.Optimization.Enums;
+using OPTANO.Modeling.Optimization.Solver.GLPK;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using OtimizacaoFoodTruck.Entitys;
 
-using org.gnu.glpk;
 
 
 namespace OtimizacaoFoodTruck.Business
 {
     public class GlpkBusiness
     {
-        private GLPK glpk;
-        public string Otimizacao(Ingredientes ingredientes)
+        public IDictionary<string,double> Otimizacao(Ingredientes ingredientes)
         {
-            glp_prob prob = new glp_prob();
-            return GLPK.glp_version();
-        }
-       /* private Expression MontarExpressaoCustoXQuantidade(Ingredientes ingredientes)
-        {
-            Variable variable = new Variable
+            var config = new Configuration
             {
-                Value = ingredientes.QuantidadeTotalDeIngredientesAComprar * (ingredientes.PrecoBacon + ingredientes.PrecoBatataPalha + ingredientes.PrecoKetchup + ingredientes.PrecoMilho + ingredientes.PrecoPao + ingredientes.PrecoSalsicha),
-                Name = "CustoTotal",
-                Type = VariableType.Continuous,
+                NameHandling = NameHandlingStyle.Manual
+            };
 
-            };
-            return Expression.Sum(new List<Variable> { variable });
+            using (var scope = new ModelScope(config))
+            {
+                var model = new Model();
 
+                #region Variáveis
+                var x = new Variable[6];
+                x[0] = new Variable("quantidadeBacon".ToString(), 0, 9090909090909, VariableType.Integer);
+                /* {
+                     Value = ingredientes.QuantidadeBacon
+                 };*/
+                x[1] = new Variable("quantidadeBatataPalha", 0, 9090909090909, VariableType.Integer);
+                /*{
+                    Value = ingredientes.QuantidadeBatataPalha
+                };*/
+                x[2] = new Variable("quantidadeKetchup", 0, 9090909090909, VariableType.Integer);
+                /*{
+                    Value = ingredientes.QuantidadeKetchup
+                };*/
+                x[3] = new Variable("quantidadeMilho", 0, 9090909090909, VariableType.Integer);
+                /*{
+                    Value = ingredientes.QuantidadeMilho
+                };*/
+                x[4] = new Variable("quantidadePao", 0, 9090909090909, VariableType.Integer);
+               /* {
+                    Value = ingredientes.QuantidadePao
+                };*/
+                x[5] = new Variable("quantidadeSalsicha", 0, 9090909090909, VariableType.Integer);
+               /* {
+                    Value = ingredientes.QuantidadeSalsicha
+                };*/
+                #endregion
+
+                // Função Objetivo
+                // Cada aresta/caminho multiplicada pelo seu respectivo peso/distância
+                model.AddObjective(new Objective(
+                    x[0]*ingredientes.PrecoBacon+ x[1] * ingredientes.PrecoBatataPalha + x[2] * ingredientes.PrecoKetchup + x[3] * ingredientes.PrecoMilho + x[4] * ingredientes.PrecoPao + x[5] * ingredientes.PrecoSalsicha
+                , string.Empty, ObjectiveSense.Minimize));
+
+                #region Restrições
+                // Para cada vértice, as arestas de entrada são positivas e as de saída são negativas
+                // Valor da expressão
+                int value = 0;
+                // 0
+                //value = Vi == 0 ? -1 : Vf == 0 ? 1 : 0;
+                model.AddConstraint((ingredientes.PrecoBacon*x[0] + ingredientes.PrecoBatataPalha*x[1] + ingredientes.PrecoKetchup*x[2] + ingredientes.PrecoPao*x[4] + ingredientes.PrecoMilho*x[3] + ingredientes.PrecoSalsicha*x[5])<=ingredientes.CapitalDeGiro);
+                model.AddConstraint(x[4] >= (ingredientes.QuantidadePao)*(ingredientes.DemandaKetchup + ingredientes.DemandaBacon + ingredientes.DemandaBatataPalha + ingredientes.DemandaMilho)  );
+                model.AddConstraint(x[5] >= (ingredientes.QuantidadeSalsicha)*(ingredientes.DemandaKetchup + ingredientes.DemandaBacon + ingredientes.DemandaBatataPalha + ingredientes.DemandaMilho));
+                model.AddConstraint(x[3] >= ingredientes.QuantidadeKetchup*ingredientes.DemandaKetchup);
+                model.AddConstraint(x[0] >= ingredientes.QuantidadeBacon* ingredientes.DemandaBacon);
+                model.AddConstraint(x[1] >= ingredientes.QuantidadeBatataPalha*ingredientes.DemandaBatataPalha);
+                model.AddConstraint(x[2] >= ingredientes.QuantidadeMilho*ingredientes.DemandaMilho);
+                #region Condições de não-negatividade
+                x.ForEach(variable =>
+                {
+                    model.AddConstraint(variable >= 0);
+                });
+                #endregion
+                #endregion
+
+                using (var solver = new GLPKSolver())
+                {
+                    model.Name = "otimization";
+                    var solution = solver.Solve(model);
+
+
+                    if (solution.VariableValues != null)
+                    {
+                        return solution.VariableValues;
+                    }
+
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
         }
-        private Model AdicionarObjetivo(List<Variable> list, Model model)
-        {
-            List<Variable> lista = new List<Variable>();
-            Objective objective = new Objective(Expression.Sum(list));
-            model.AddObjective(objective);
-            return model;
-        }
-        private List<Variable> AdicionarVariaveis(Ingredientes ingredientes)
-        {
-            Variable QuantidadeBacon = new Variable
-            {
-                Type = VariableType.Integer,
-                Name = "QuantidadeBacon",
-                LowerBound = 1,
-                UpperBound = 10000000,
-                Value = ingredientes.QuantidadeBacon
-            };
-            Variable QuantidadeMilho = new Variable
-            {
-                Type = VariableType.Integer,
-                Name = "QuantidadeMilho",
-                LowerBound = 1,
-                UpperBound = 10000000,
-                Value = ingredientes.QuantidadeMilho
-            };
-            Variable PrecoBacon = new Variable
-            {
-                Type = VariableType.Continuous,
-                Name = "PrecoBacon",
-                LowerBound = 1,
-                UpperBound = 10000000,
-                Value = ingredientes.PrecoBacon
-            };
-            Variable PrecoMilho = new Variable
-            {
-                Type = VariableType.Continuous,
-                Name = "PrecoMilho",
-                LowerBound = 1,
-                UpperBound = 10000000,
-                Value = ingredientes.PrecoMilho
-            };
-            Variable CapitalGiro = new Variable
-            {
-                Type = VariableType.Continuous,
-                Name = "Capital de giro",
-                LowerBound = 1,
-                UpperBound = 1000000000000000,
-                Value = ingredientes.CapitalDeGiro,
-            };
-            List<Variable> lista = new List<Variable>
-            {
-                CapitalGiro,
-                PrecoBacon,
-                PrecoMilho,
-                QuantidadeMilho,
-                QuantidadeBacon
-            };
-            return lista;
-        }*/
     }
 }
