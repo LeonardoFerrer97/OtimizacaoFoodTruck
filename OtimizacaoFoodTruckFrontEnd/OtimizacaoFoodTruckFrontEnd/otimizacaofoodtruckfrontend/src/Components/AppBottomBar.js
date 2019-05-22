@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -27,7 +27,7 @@ class AppBottomBar extends Component {
         return (
                 <AppBar position="fixed" color="primary" className={classes.appBar}>
                     <Toolbar className={classes.toolbar}>
-                    <Button onClick={this.props.handleFinalizar} classes={{root:classes.button,text:classes.buttonText}}> Finalizar </Button>
+                    <Button onClick={this.props.handleFinalizar} classes={{root:classes.button,text:classes.buttonText}}>{this.props.prosseguir?'Prosseguir':'Finalizar'} </Button>
                     </Toolbar>
                 </AppBar>
         );

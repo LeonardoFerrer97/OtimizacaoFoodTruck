@@ -33,6 +33,7 @@ class BodyRestricoesCapital extends React.Component {
                         onChange={this.props.handleChange('capitalDeGiro')}
                         margin="normal"
                         variant="filled"
+                        inputProps={{min: '1', step: '1' }}
                     />
             </div>
         );

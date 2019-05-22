@@ -1,0 +1,35 @@
+.img{
+    width:300px;
+    height: 300px;
+    align-self: center;
+    
+}
+
+.texto{
+    color:green;
+    text-align: center;
+    margin-right:25%;
+    margin-left:25%;
+    margin-top: 5%;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif
+}
+
+
+.texto-intro{
+    color:#cc381e;
+    text-align: center;
+    margin-right:25%;
+    margin-left:25%;
+    margin-top: 2%;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif
+}
+
+
+.img-intro{
+    width:200px;
+    height:200px;
+    margin-top:2%;
+    align-self: right;
+}

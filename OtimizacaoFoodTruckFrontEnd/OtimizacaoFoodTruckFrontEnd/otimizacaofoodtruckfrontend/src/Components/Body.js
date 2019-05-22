@@ -5,7 +5,6 @@ import AppBottomBar from './AppBottomBar'
 import Header from './Header';
 import BodyDeBaixo from './BodyDeBaixo';
 import BodyDeCima from './BodyDeCima';
-import { submeter } from '../Actions/Index';
 const styles = theme => ({
     container: {
         display: 'flex',
@@ -22,25 +21,24 @@ const styles = theme => ({
         width: 200,
     },
 });
-let isRestricao = false;
 class Body extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             isRestricao:false,
-            quantidadeBacon: 0,
-            quantidadeMilho: 0,
-            quantidadeSalsicha: 0,
-            quantidadePao: 0,
-            quantidadeKetchup: 0,
-            quantidadeBatataPalha: 0,
-            precoBacon: 0,
-            precoMilho: 0,
-            precoSalsicha: 0,
-            precoPao: 0,
-            precoKetchup: 0,
-            precoBatataPalha: 0,
-            capitalDeGiro:0,
+            quantidadeBacon: 1,
+            quantidadeMilho: 1,
+            quantidadeSalsicha: 1,
+            quantidadePao: 1,
+            quantidadeKetchup: 1,
+            quantidadeBatataPalha: 1,
+            precoBacon: 1,
+            precoMilho: 1,
+            precoSalsicha: 1,
+            precoPao: 1,
+            precoKetchup: 1,
+            precoBatataPalha: 1,
+            capitalDeGiro:1,
             demandaBacon:0,
             demandaBatataPalha:0,
             demandaMilho:0,
@@ -73,8 +71,7 @@ class Body extends React.Component {
                 demandaBatataPalha: this.state.demandaBatataPalha,
                 capitalDeGiro: this.state.capitalDeGiro,
             }
-            submeter(resultadoFinal);
-            this.props.clickFinalizar()
+            this.props.submeter(resultadoFinal);
         }
         else{
              this.setState({isRestricao:true})
@@ -92,9 +89,9 @@ class Body extends React.Component {
                     <BodyDeCima
                         handleChange={this.handleChange}
                         demandaMilho={this.state.demandaMilho}
-                            demandaBacon={this.state.demandaBacon}
-                            demandaKetchup={this.state.demandaKetchup}
-                            demandaBatataPalha={this.state.demandaBatataPalha}
+                        demandaBacon={this.state.demandaBacon}
+                        demandaKetchup={this.state.demandaKetchup}
+                        demandaBatataPalha={this.state.demandaBatataPalha}
                         isRestricao={this.state.isRestricao}
                         quantidadeBacon={this.state.quantidadeBacon}
                         quantidadeMilho={this.state.quantidadeMilho}
@@ -103,7 +100,7 @@ class Body extends React.Component {
                         quantidadeKetchup={this.state.quantidadeKetchup}
                         quantidadeBatataPalha={this.state.quantidadeBatataPalha}
                     ></BodyDeCima>
-                    <Header isPreco={false} isRestricao={this.state.isRestricao}></Header>
+                    <Header isPreco={false} isRestricao={this.state.isRestricao} isCapitalGiro={this.state.isRestricao}></Header>
                         <BodyDeBaixo
                             handleChange={this.handleChange}
                             capitalDeGiro={this.state.capitalDeGiro}

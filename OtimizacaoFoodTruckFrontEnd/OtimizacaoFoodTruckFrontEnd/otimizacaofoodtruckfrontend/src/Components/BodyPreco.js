@@ -36,6 +36,7 @@ class BodyPreco extends React.Component {
                         onChange={this.props.handleChange('precoPao')}
                         margin="normal"
                         variant="filled"
+                        inputProps={{min: '1', step: '1' }}
                     />
                     <TextField
                         type='number'
@@ -45,6 +46,7 @@ class BodyPreco extends React.Component {
                         value={this.props.precoSalsicha}
                         onChange={this.props.handleChange('precoSalsicha')}
                         margin="normal"
+                        inputProps={{min: '1', step: '1' }}
                         variant="filled"
                     />
                     <TextField
@@ -56,6 +58,7 @@ class BodyPreco extends React.Component {
                         onChange={this.props.handleChange('precoMilho')}
                         margin="normal"
                         variant="filled"
+                        inputProps={{min: '1', step: '1' }}
                     />
                     <TextField
                         type='number'
@@ -66,6 +69,7 @@ class BodyPreco extends React.Component {
                         onChange={this.props.handleChange('precoBatataPalha')}
                         margin="normal"
                         variant="filled"
+                        inputProps={{min: '1', step: '1' }}
                     />
                     <TextField
                     type='number'
@@ -76,6 +80,7 @@ class BodyPreco extends React.Component {
                         onChange={this.props.handleChange('precoBacon')}
                         margin="normal"
                         variant="filled"
+                        inputProps={{min: '1', step: '1' }}
                     />
                     <TextField
                     type='number'
@@ -86,6 +91,7 @@ class BodyPreco extends React.Component {
                         onChange={this.props.handleChange('precoKetchup')}
                         margin="normal"
                         variant="filled"
+                        inputProps={{min: '1', step: '1' }}
                     />
             </div>
         );

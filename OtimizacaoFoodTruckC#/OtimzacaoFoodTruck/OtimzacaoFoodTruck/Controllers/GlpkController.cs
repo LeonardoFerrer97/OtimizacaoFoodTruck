@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using OtimizacaoFoodTruck.Business;
 using OtimizacaoFoodTruck.Entitys;
 using System.Collections.Generic;

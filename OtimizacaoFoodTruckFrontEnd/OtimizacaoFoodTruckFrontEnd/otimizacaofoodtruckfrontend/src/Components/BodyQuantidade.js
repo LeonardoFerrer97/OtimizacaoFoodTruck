@@ -38,6 +38,7 @@ class BodyQuantidade extends React.Component {
                         onChange={this.props.handleChange('quantidadePao')}
                         margin="normal"
                         variant="filled"
+                        inputProps={{min: '1', step: '1' }}
                     />
                     <TextField
                         type='number'
@@ -48,6 +49,7 @@ class BodyQuantidade extends React.Component {
                         onChange={this.props.handleChange('quantidadeSalsicha')}
                         margin="normal"
                         variant="filled"
+                        inputProps={{min: '1', step: '1' }}
                     />
                     <TextField
                         type='number'
@@ -58,6 +60,7 @@ class BodyQuantidade extends React.Component {
                         onChange={this.props.handleChange('quantidadeMilho')}
                         margin="normal"
                         variant="filled"
+                        inputProps={{min: '1', step: '1' }}
                     />
                     <TextField
                         type='number'
@@ -68,6 +71,7 @@ class BodyQuantidade extends React.Component {
                         onChange={this.props.handleChange('quantidadeBatataPalha')}
                         margin="normal"
                         variant="filled"
+                        inputProps={{min: '1', step: '1' }}
                     />
                     <TextField
                         type='number'
@@ -78,6 +82,7 @@ class BodyQuantidade extends React.Component {
                         onChange={this.props.handleChange('quantidadeBacon')}
                         margin="normal"
                         variant="filled"
+                        inputProps={{min: '1', step: '1' }}
                     />
                     <TextField
                         type='number'
@@ -88,6 +93,7 @@ class BodyQuantidade extends React.Component {
                         onChange={this.props.handleChange('quantidadeKetchup')}
                         margin="normal"
                         variant="filled"
+                        inputProps={{min: '1', step: '1' }}
                     />
                 <AppBottomBar handleFinalizar={this.props.handleFinalizar}/>
             </div>
