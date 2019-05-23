@@ -38,30 +38,40 @@ namespace OtimizacaoFoodTruck.Business
                 // as variaveis setadas acima multiplicadas pelo respectivo preço do ingrediente
                 //objetivo-> minimizar
                 model.AddObjective(new Objective(
-                    x[0]*ingredientes.PrecoBacon+ x[1] * ingredientes.PrecoBatataPalha + x[2] * ingredientes.PrecoKetchup + x[3] * ingredientes.PrecoMilho + x[4] * ingredientes.PrecoPao + x[5] * ingredientes.PrecoSalsicha
+                    x[0]*ingredientes.PrecoBacon+ x[1] * ingredientes.PrecoBatataPalha + x[2] * ingredientes.PrecoKetchup + 
+                    x[3] * ingredientes.PrecoMilho + x[4] * ingredientes.PrecoPao + x[5] * ingredientes.PrecoSalsicha
                 , string.Empty, ObjectiveSense.Minimize));
 
                 #region Restrições
 
                 //capital de giro deve ser maior que a função objetivo
-                model.AddConstraint((ingredientes.PrecoBacon*x[0] + ingredientes.PrecoBatataPalha*x[1] + ingredientes.PrecoKetchup*x[2] + ingredientes.PrecoPao*x[4] + ingredientes.PrecoMilho*x[3] + ingredientes.PrecoSalsicha*x[5])<=ingredientes.CapitalDeGiro);
+                model.AddConstraint((ingredientes.PrecoBacon*x[0] + ingredientes.PrecoBatataPalha*x[1] + ingredientes.PrecoKetchup*x[2] 
+                    + ingredientes.PrecoPao*x[4] + ingredientes.PrecoMilho*x[3] + ingredientes.PrecoSalsicha*x[5])<=ingredientes.CapitalDeGiro);
 
-                //a quantidade de pães na solução deve ser maior que a quantidade usada por cachorro quente de pao multiplicada pela demanda de todos os tipos
-                model.AddConstraint(x[4] >= (ingredientes.QuantidadePao)*(ingredientes.DemandaKetchup + ingredientes.DemandaBacon + ingredientes.DemandaBatataPalha + ingredientes.DemandaMilho)  );
+                //a quantidade de pães na solução deve ser maior que a quantidade usada por cachorro quente de pao multiplicada 
+                //pela demanda de todos os tipos
+                model.AddConstraint(x[4] >= (ingredientes.QuantidadePao)*(ingredientes.DemandaKetchup + ingredientes.DemandaBacon +
+                    ingredientes.DemandaBatataPalha + ingredientes.DemandaMilho)  );
 
-                //a quantidade de salsicha na solução deve ser maior que a quantidade usada por cachorro quente de salsicha multiplicada pela demanda de todos os tipos
-                model.AddConstraint(x[5] >= (ingredientes.QuantidadeSalsicha)*(ingredientes.DemandaKetchup + ingredientes.DemandaBacon + ingredientes.DemandaBatataPalha + ingredientes.DemandaMilho));
+                //a quantidade de salsicha na solução deve ser maior que a quantidade usada por cachorro quente 
+                //de salsicha multiplicada pela demanda de todos os tipos
+                model.AddConstraint(x[5] >= (ingredientes.QuantidadeSalsicha)*(ingredientes.DemandaKetchup + ingredientes.DemandaBacon + 
+                    ingredientes.DemandaBatataPalha + ingredientes.DemandaMilho));
 
-                //a quantidade de ketchup deve ser maior que a quantidade de ketchup utilizada por cachorro quente multiplicada pela demanda do tipo do cachorro quente que utiliza o ingrediente
+                //a quantidade de ketchup deve ser maior que a quantidade de ketchup utilizada por cachorro quente
+                //multiplicada pela demanda do tipo do cachorro quente que utiliza o ingrediente
                 model.AddConstraint(x[3] >= ingredientes.QuantidadeKetchup*ingredientes.DemandaKetchup);
 
-                //a quantidade de bacon deve ser maior que a quantidade de bacon utilizada por cachorro quente multiplicada pela demanda do tipo de cachorro quente que utiliza o ingrediente
+                //a quantidade de bacon deve ser maior que a quantidade de bacon utilizada por cachorro quente
+                //multiplicada pela demanda do tipo de cachorro quente que utiliza o ingrediente
                 model.AddConstraint(x[0] >= ingredientes.QuantidadeBacon* ingredientes.DemandaBacon);
 
-                //a quantidade de batata palha deve ser maior que a quantidade de batata palha utilizada por cachorro quente multiplicada pela demanda do tipo de cachorro quente que utiliza o ingrediente
+                //a quantidade de batata palha deve ser maior que a quantidade de batata palha utilizada 
+                //por cachorro quente multiplicada pela demanda do tipo de cachorro quente que utiliza o ingrediente
                 model.AddConstraint(x[1] >= ingredientes.QuantidadeBatataPalha*ingredientes.DemandaBatataPalha);
 
-                //a quantidade de milho deve ser maior que a quantidade de milho utilizada por cachorro quente multiplicada pela demanda do tipo de cachorro quente que utiliza o ingrediente
+                //a quantidade de milho deve ser maior que a quantidade de milho utilizada por cachorro quente 
+                //multiplicada pela demanda do tipo de cachorro quente que utiliza o ingrediente
                 model.AddConstraint(x[2] >= ingredientes.QuantidadeMilho*ingredientes.DemandaMilho);
                 
                 //nenhuma variavel pode ser negativa

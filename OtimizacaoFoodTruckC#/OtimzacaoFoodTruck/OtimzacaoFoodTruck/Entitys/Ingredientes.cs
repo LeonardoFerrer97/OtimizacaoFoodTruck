@@ -25,6 +25,5 @@ namespace OtimizacaoFoodTruck.Entitys
         public double DemandaKetchup { get; set; }
         public double DemandaBatataPalha { get; set; } 
         public double CapitalDeGiro { get; set; }
-        public double QuantidadeTotalDeIngredientesAComprar { get; set; }
     }
 }

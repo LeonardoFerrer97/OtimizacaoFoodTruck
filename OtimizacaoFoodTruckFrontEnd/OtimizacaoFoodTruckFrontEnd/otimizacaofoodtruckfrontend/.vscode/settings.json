@@ -1,0 +1,7 @@
+{
+    "appService.zipIgnorePattern": [
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/ac59b3a7-ab9f-4602-a441-fbed362fa6c1/resourceGroups/appsvc_rg_linux_centralus/providers/Microsoft.Web/sites/OtimizacaoFoodTruckCachorroQuenteFront",
+    "appService.deploySubpath": ""
+}
