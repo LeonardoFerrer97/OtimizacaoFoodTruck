@@ -80,7 +80,10 @@ namespace OtimizacaoFoodTruck.Business
                     //caso haja solução, retorno a mesma
                     if (solution.VariableValues != null)
                     {
-                        return solution.VariableValues;
+                        var resp = solution.VariableValues;
+                        solution.ObjectiveValues.TryGetValue("A", out double Z);
+                        resp.Add("z",Z) ;
+                        return resp;
                     }
                     
                     //caso não haja solução, retorno nulo para o front end saber que nao houve solução

@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TelaMensagemNaoOtimizacao from './TelaMensagemNaoOtimizacao'
+import '../Styles/TelaDeResultados.css'
 const styles = theme => ({
   root: {
     width: '100%',
@@ -30,18 +31,20 @@ class TelaDeResultados extends Component {
   render() {
     const { classes } = this.props;
     if (this.props.data !== null) {
+      console.log(this.props.data)
       let rows = [
-        this.createData('milho', this.props.data.quantidadeMilho),
-        this.createData('pão', this.props.data.quantidadePao),
-        this.createData('bacon', this.props.data.quantidadeBacon),
-        this.createData('batata palha', this.props.data.quantidadeBatataPalha),
-        this.createData('salsicha', this.props.data.quantidadeSalsicha),
-        this.createData('ketchup', this.props.data.quantidadeKetchup),
+        this.createData('Milho', this.props.data.quantidadeMilho),
+        this.createData('Pão', this.props.data.quantidadePao),
+        this.createData('Bacon', this.props.data.quantidadeBacon),
+        this.createData('Batata palha', this.props.data.quantidadeBatataPalha),
+        this.createData('Salsicha', this.props.data.quantidadeSalsicha),
+        this.createData('Ketchup', this.props.data.quantidadeKetchup),
       ];
       if(rows[0].quantidadeASerComprado === undefined){
         return <TelaMensagemNaoOtimizacao />
       }
       return (
+        <div>
         <Paper className={classes.root}>
           <Table className={classes.table}>
             <TableHead>
@@ -62,6 +65,8 @@ class TelaDeResultados extends Component {
             </TableBody>
           </Table>
         </Paper>
+        <h1 className={'texto'}>Dinheiro gasto para suprir a demanda seria de {this.props.data.z} reais</h1>
+        </div>
       );
     }
     else return <div></div>
